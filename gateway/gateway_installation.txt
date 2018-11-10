@@ -1,0 +1,5 @@
+   22  sudo apt-get update
+   23  sudo apt-get install python-pip libglib2.0-dev
+   24  sudo pip install bluepy
+   49  sudo pip install requests
+   28  chmod 755 gateway.sh
