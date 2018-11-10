@@ -1,0 +1,52 @@
+div.StatusHeader {
+  background: rgba(0, 0, 0, 0.10);
+  height: 36px;
+}
+
+div.SensorMac {
+  font-size: 14px;
+  bottom: 0px;
+}
+
+div.SensorRssi {
+  font-size: 14px;
+  text-align: right;
+  bottom: 0px;
+  margin: 2px;
+}
+
+div.StatusFooter {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 46px;
+  background: rgba(0, 0, 0, 0.35);
+  font-size:11pt;
+}
+
+div.StatusFooter > .left {
+  position: absolute;
+  text-align: left;
+  left: 0px;
+  margin: 3px;
+}
+
+div.StatusFooter > .right {
+  position: absolute;
+  text-align: right;
+  right: 0px;
+  margin: 3px;
+}
+
+.centerVertical
+{
+  line-height: 0px;
+  position: relative;
+  top: 50%;
+  transform: perspective(1px) translateY(-50%);
+}
+
+div.StatusValue > .StatusAttrib {
+  font-size: 16px;
+  margin: 28px;
+}

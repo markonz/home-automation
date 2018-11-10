@@ -1,0 +1,41 @@
+div.DoorStateDisplay {
+  position: relative;
+  float: left;
+  width: 120px;
+  height: 100px;
+  margin: 5px;
+  cursor: default;
+  color: white;
+  font-family: 'Montserrat', sans serif;
+}
+    
+div.DoorState0 {
+  background: linear-gradient(to bottom right, rgb(149, 45, 45), rgba(189, 87, 87, 0.8));
+}
+
+div.DoorState1 {
+  background: linear-gradient(to bottom right, rgb(45, 149, 85), rgba(87, 189, 112, 0.8));
+}
+
+div.DoorStateDisplay > .centerVertical
+{
+  top: 45%;
+}
+
+div.DoorLocation {
+  font-size: 16px;
+  height: 50%;
+}
+
+div.DoorStateDisplay:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  transition: 0.3s;
+}
+
+div.DoorStateDisplay > .StatusFooter {
+  font-size: 13px;
+}
+
+div.DoorStateDisplay > .StatusFooter > .right {
+  bottom: 0px;
+}

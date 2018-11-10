@@ -1,0 +1,19 @@
+table.Gateway-IP {
+  position: relative;
+  margin-right: 0px;
+  margin-left: auto;
+  font-size: 14px;
+  text-align: right;
+}
+
+div.Gateway-Name {
+  position: absolute;
+  right: 120px;
+  margin: 3px;
+}
+
+div.Gateway-Address {
+  position: absolute;
+  right: 10px;
+  margin: 3px;
+}

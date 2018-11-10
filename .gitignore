@@ -1,5 +1,4 @@
 web/node_modules
 web/build
 
-*.json
 *.txt

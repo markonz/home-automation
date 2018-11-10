@@ -1,0 +1,9 @@
+div.sensorReading {
+  position: relative;
+  display: block;
+  height: 180px;
+}
+
+div.graph {
+  float: left;
+}

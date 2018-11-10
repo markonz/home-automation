@@ -1,0 +1,21 @@
+div.TankLevelInfoBox {
+  position: relative;
+  float: left;
+  width: 170px;
+  height: 194px;
+  margin: 5px;
+  background: linear-gradient(to bottom right, rgb(102, 45, 149), rgba(143, 87, 189, 0.8));
+  cursor: default;
+  color: white;
+  font-family: 'Montserrat', sans serif;
+}
+    
+div.TankLevelInfoBox > .StatusValue {
+  font-size: 34px;
+  height: 60%;
+}
+
+div.TankLevelInfoBox:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  transition: 0.3s;
+}
