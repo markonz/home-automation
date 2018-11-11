@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import * as firebase from 'firebase';
 
 import TankLevelInfoBox from './components/TankLevelInfoBox';
+import Graph from './Graph';
 
 class TankLevelReading extends Component {
   constructor(props) {
@@ -29,7 +30,47 @@ class TankLevelReading extends Component {
     this.setState({
       infoboxData: data
       });
-}
+  }
+
+  setGraphDataListener() {
+    this.timer = setInterval( () => {
+      this.updateGraph();
+    }, 3600 * 60 * 1000);
+  }
+
+  updateGraph() {
+    let startDate = new Date();
+    startDate.setDate(startDate.getDate() - 30);
+
+    console.log("startDate", startDate);
+    firebase.firestore().collection('tankLevelReadings')
+        .where('measTime', '>', startDate)
+        .orderBy('measTime', 'desc')
+        .get()
+        .then((snapshot) => {
+            var plotData = [];
+            var gdata = [];
+            
+            snapshot.forEach(doc => {
+                const data = doc.data();
+                let strTimestamp = data.measTime.toDate().getTime();
+                var point = {
+                    x: strTimestamp,
+                    y: data.FillPercentage
+                };
+                
+                gdata.push(point);
+            });
+
+            plotData.push(gdata);
+            
+  //                console.log(gdata);
+  //                console.log(snapshot);
+            this.setState({
+                graphData: plotData
+            });
+      });
+  }
 
   setStatusListener() {
     firebase.firestore().collection('tankLevelReadings')
@@ -41,12 +82,21 @@ class TankLevelReading extends Component {
 
   componentWillMount() {
     this.setStatusListener();
+    this.updateGraph();
+    this.setGraphDataListener();
   }
 
   render() {
+    if(!this.state.infoboxData || !this.state.graphData) {
+      return(null)
+    }
+
     return (
-      this.state.infoboxData ? <TankLevelInfoBox data={this.state.infoboxData} /> : null
-    );
+      <div className="sensorReading" >
+        <TankLevelInfoBox data={this.state.infoboxData} />
+        <Graph data={this.state.graphData} />
+      </div>
+      );
   }
 }
 
